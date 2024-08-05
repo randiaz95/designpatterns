@@ -14,6 +14,8 @@ Randy's Software Engineering Design Patterns
 - Builder: Separates the construction of a complex object from its representation so that the same construction process can create different representations.
 - Prototype: Specifies the kinds of objects to create using a prototypical instance, and creates new objects by copying this prototype.
 - Singleton: Ensures a class has only one instance and provides a global point of access to it.
+- Object Pool: Manages a pool of reusable objects.
+- Multiton: A variation of the Singleton pattern that allows for multiple instances.
 
 # Structural Patterns
 - Adapter: Converts the interface of a class into another interface the client expects. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces.
@@ -23,6 +25,10 @@ Randy's Software Engineering Design Patterns
 - Facade: Provides a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
 - Flyweight: Uses sharing to support large numbers of fine-grained objects efficiently.
 - Proxy: Provides a surrogate or placeholder for another object to control access to it.
+- Private Class Data: Restricts access to class data by using accessor methods.
+- Marker: Uses empty interfaces to associate metadata with a class.
+- Plain old data object (PODO): Simplifies the transfer of data by encapsulating it in a single object, often used in serialization, deserialization, and data transport. Other names could be DTO or Data Struct.
+
 
 # Behavioral Patterns
 - Chain of Responsibility: Avoids coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.
@@ -45,12 +51,19 @@ Randy's Software Engineering Design Patterns
 - Scheduler: Provides a way to schedule tasks for future execution.
 - Thread Pool: Manages a pool of worker threads to efficiently execute asynchronous tasks.
 - Half-Sync/Half-Async: Divides the processing of a task into two separate layers: synchronous and asynchronous, to allow high-level synchronous operations and low-level asynchronous operations.
+- Read-Write Lock: Allows concurrent read access to an object but requires exclusive access for writes.
 
 # Architectural Patterns
 - Model-View-Controller (MVC): Divides an application into three interconnected components: the model (data), the view (user interface), and the controller (business logic).
 - Model-View-ViewModel (MVVM): Similar to MVC, but separates the view model to provide more manageable and testable code.
 - Layered (n-tier): Divides the system into layers with specific responsibilities, often including presentation, business logic, and data access layers.
 - Microservices: Structures an application as a collection of loosely coupled services, which implement business capabilities.
+- Microservices: Structures an application as a collection of loosely coupled services.
+- Event-Driven Architecture: Promotes the production, detection, consumption of, and reaction to events.
+- Service-Oriented Architecture (SOA): An architectural pattern where software components (services) are designed to provide specific functionality over a network. 
+- Layered (N-Tier) Architecture: Layered architecture, also known as N-Tier architecture, organizes an application into distinct layers, each with specific responsibilities.
+- Client-Server Architecture: Client-Server architecture is a model where the workload is divided between service providers (servers) and service requesters (clients).
+- Pipe and Filter Architecture: Pipe and Filter architecture organizes an application into a series of processing stages (filters) connected by data streams (pipes).
 
 # Miscellaneous Patterns
 - Dependency Injection: A technique where an object receives other objects that it depends on, typically through constructor injection, setter injection, or interface injection.
