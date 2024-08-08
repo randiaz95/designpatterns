@@ -1,50 +1,46 @@
 from abc import ABC, abstractmethod
 
-# A Bridge requires two parts: an abstraction and an implementation.
-# The Bridge pattern breaks the abstraction and implementation into separate class hierarchies.
-class Message:
-    def __init__(self, sender):
-        self.sender = sender
+class Shape(ABC):
+    def __init__(self, color):
+        self.color = color
 
-    def send(self, recipient, content):
-        self.sender.send(recipient, content)
-
-# The abstraction is the interface that the client uses.
-# The implementation is the concrete class that the abstraction uses.
-class MessageSender(ABC):
     @abstractmethod
-    def send(self, recipient, content):
+    def draw(self):
         pass
 
 
-class InstantMessageSender(MessageSender):
-    def send(self, recipient, content):
-        print(f"Sending instant message to {recipient}: {content}")
+class Color(ABC):
+    @abstractmethod
+    def apply_color(self):
+        pass
 
 
-class ScheduledMessageSender(MessageSender):
-    def send(self, recipient, content):
-        print(f"Message to {recipient} scheduled: {content}")
+class Circle(Shape):
+    def draw(self):
+        print(f"Drawing a circle with {self.color.apply_color()} color.")
 
 
-class TextMessage(Message):
-    def send(self, recipient, content):
-        print("Sending text message...")
-        super().send(recipient, content)
+class Square(Shape):
+    def draw(self):
+        print(f"Drawing a square with {self.color.apply_color()} color.")
 
 
-class EmailMessage(Message):
-    def send(self, recipient, content):
-        print("Sending email message...")
-        super().send(recipient, content)
+class Red(Color):
+    def apply_color(self):
+        return "#ff0000"
+
+
+class Blue(Color):
+    def apply_color(self):
+        return "#0000ff"
 
 
 if __name__ == "__main__":
-    instant_sender = InstantMessageSender()
-    scheduled_sender = ScheduledMessageSender()
+    red_color = RedColor()
+    blue_color = BlueColor()
 
-    text_message = TextMessage(instant_sender)
-    email_message = EmailMessage(scheduled_sender)
+    red_circle = Circle(red_color)
+    blue_square = Square(blue_color)
 
-    text_message.send("John Doe", "Hello, John! This is an instant text message.")
-    email_message.send("Jane Smith", "Hi Jane, your scheduled email message will be sent soon.")
+    red_circle.draw()
+    blue_square.draw()
